@@ -1,0 +1,237 @@
+EESchema Schematic File Version 4
+LIBS:RFblinky_transmitter-cache
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Regulator_Linear:LD1117S33TR_SOT223 U1
+U 1 1 5D62F52D
+P 2050 2100
+F 0 "U1" H 2050 2342 50  0000 C CNN
+F 1 "LD1117S33TR_SOT223" H 2050 2251 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2050 2300 50  0001 C CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000544.pdf" H 2150 1850 50  0001 C CNN
+	1    2050 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C2
+U 1 1 5D630937
+P 2650 2400
+F 0 "C2" H 2765 2446 50  0000 L CNN
+F 1 "10u" H 2765 2355 50  0000 L CNN
+F 2 "" H 2650 2400 50  0001 C CNN
+F 3 "~" H 2650 2400 50  0001 C CNN
+	1    2650 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C1
+U 1 1 5D6326DC
+P 1400 2400
+F 0 "C1" H 1515 2446 50  0000 L CNN
+F 1 "10u" H 1515 2355 50  0000 L CNN
+F 2 "" H 1400 2400 50  0001 C CNN
+F 3 "~" H 1400 2400 50  0001 C CNN
+	1    1400 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 2100 1400 2250
+Wire Wire Line
+	2350 2100 2650 2100
+Wire Wire Line
+	2650 2100 2650 2250
+$Comp
+L power:GND #PWR?
+U 1 1 5D63714C
+P 2650 2750
+F 0 "#PWR?" H 2650 2500 50  0001 C CNN
+F 1 "GND" H 2655 2577 50  0000 C CNN
+F 2 "" H 2650 2750 50  0001 C CNN
+F 3 "" H 2650 2750 50  0001 C CNN
+	1    2650 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1750 2100 1400 2100
+Wire Wire Line
+	2050 2650 2650 2650
+Wire Wire Line
+	2050 2400 2050 2650
+Wire Wire Line
+	2650 2650 2650 2550
+Wire Wire Line
+	2050 2650 1400 2650
+Wire Wire Line
+	1400 2650 1400 2550
+Connection ~ 2050 2650
+Wire Wire Line
+	2650 2650 2650 2750
+Connection ~ 2650 2650
+$Comp
+L power:+9V #PWR?
+U 1 1 5D63D07B
+P 1400 1800
+F 0 "#PWR?" H 1400 1650 50  0001 C CNN
+F 1 "+9V" H 1415 1973 50  0000 C CNN
+F 2 "" H 1400 1800 50  0001 C CNN
+F 3 "" H 1400 1800 50  0001 C CNN
+	1    1400 1800
+	1    0    0    -1  
+$EndComp
+Connection ~ 1400 2100
+Wire Wire Line
+	1400 1800 1400 2100
+Text Label 2900 2100 0    50   ~ 0
+MCU_3V3
+Wire Wire Line
+	2650 2100 2900 2100
+Connection ~ 2650 2100
+$Comp
+L MCU_Texas_MSP430:MSP430G2231IN14 U2
+U 1 1 5D62DE40
+P 6650 3300
+F 0 "U2" H 5900 4100 50  0000 C CNN
+F 1 "MSP430G2231IN14" H 6200 4000 50  0000 C CNN
+F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 5900 2650 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/symlink/msp430g2231.pdf" H 6650 3300 50  0001 C CNN
+	1    6650 3300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5D6441CE
+P 4950 3150
+F 0 "#PWR?" H 4950 2900 50  0001 C CNN
+F 1 "GND" H 4955 2977 50  0000 C CNN
+F 2 "" H 4950 3150 50  0001 C CNN
+F 3 "" H 4950 3150 50  0001 C CNN
+	1    4950 3150
+	1    0    0    -1  
+$EndComp
+Text Label 4950 2550 0    50   ~ 0
+MCU_3V3
+NoConn ~ 5700 2750
+NoConn ~ 5700 3000
+NoConn ~ 5700 3100
+NoConn ~ 5700 3200
+NoConn ~ 5700 3300
+NoConn ~ 5700 3400
+NoConn ~ 5700 3500
+NoConn ~ 7600 3800
+NoConn ~ 7600 3600
+$Comp
+L Device:R_POT_US RV1
+U 1 1 5D646875
+P 4950 2900
+F 0 "RV1" H 4882 2946 50  0000 R CNN
+F 1 "10k" H 4882 2855 50  0000 R CNN
+F 2 "" H 4950 2900 50  0001 C CNN
+F 3 "~" H 4950 2900 50  0001 C CNN
+	1    4950 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R1
+U 1 1 5D6471D0
+P 7750 2600
+F 0 "R1" H 7818 2646 50  0000 L CNN
+F 1 "10k" H 7818 2555 50  0000 L CNN
+F 2 "" V 7790 2590 50  0001 C CNN
+F 3 "~" H 7750 2600 50  0001 C CNN
+	1    7750 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7600 2850 7750 2850
+Text Label 7750 2100 0    50   ~ 0
+MCU_3V3
+Wire Wire Line
+	7750 2850 7750 2750
+Wire Wire Line
+	6650 2500 6650 2300
+Wire Wire Line
+	6650 2300 7750 2300
+Wire Wire Line
+	7750 2100 7750 2300
+Connection ~ 7750 2300
+Wire Wire Line
+	7750 2300 7750 2450
+$Comp
+L power:GND #PWR?
+U 1 1 5D649BFB
+P 6650 4150
+F 0 "#PWR?" H 6650 3900 50  0001 C CNN
+F 1 "GND" H 6655 3977 50  0000 C CNN
+F 2 "" H 6650 4150 50  0001 C CNN
+F 3 "" H 6650 4150 50  0001 C CNN
+	1    6650 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 4150 6650 4050
+Wire Wire Line
+	5700 2900 5100 2900
+Wire Wire Line
+	4950 3150 4950 3050
+Wire Wire Line
+	4950 2750 4950 2550
+Text Label 5200 3600 0    50   ~ 0
+DATA_RX
+Wire Wire Line
+	5700 3600 5200 3600
+$Comp
+L 433Lib:SMAKN-433TX U3
+U 1 1 5D656FFB
+P 1900 3800
+F 0 "U3" H 2250 3950 50  0000 C CNN
+F 1 "SMAKN-433TX" H 2050 3850 50  0000 C CNN
+F 2 "" H 2000 3850 50  0001 C CNN
+F 3 "" H 2000 3850 50  0001 C CNN
+	1    1900 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5D65E9D9
+P 2650 4200
+F 0 "#PWR?" H 2650 3950 50  0001 C CNN
+F 1 "GND" H 2655 4027 50  0000 C CNN
+F 2 "" H 2650 4200 50  0001 C CNN
+F 3 "" H 2650 4200 50  0001 C CNN
+	1    2650 4200
+	1    0    0    -1  
+$EndComp
+Text Label 2650 4000 0    50   ~ 0
+3V3_MCU
+Text Label 2650 3900 0    50   ~ 0
+DATA_TX
+Wire Wire Line
+	2400 3900 2650 3900
+Wire Wire Line
+	2650 4000 2400 4000
+Wire Wire Line
+	2400 4100 2650 4100
+Wire Wire Line
+	2650 4100 2650 4200
+Text Notes 1800 1450 0    50   ~ 0
+3V3 Regulator
+Text Notes 1900 3500 0    50   ~ 0
+Transmitter
+Text Notes 6450 1950 0    50   ~ 0
+MCU\n
+Text Notes 7400 7500 0    50   ~ 0
+Transmitter Module
+$EndSCHEMATC
