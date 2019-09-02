@@ -497,4 +497,6 @@ Text Notes 10600 7650 0    50   ~ 0
 1.0
 Text Notes 6050 2150 0    50   ~ 0
 MCU
+Text Notes 5000 900  0    118  ~ 0
+RECEIVER MODULE
 $EndSCHEMATC

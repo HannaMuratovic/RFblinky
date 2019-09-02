@@ -21,27 +21,27 @@ void setup() {
 
 void loop() {
   unsigned int buffer[NUM_SIGNAL_BITS];
-  for (int i = 0; i < NUM_SIGNAL_BITS; i++) {                      //initialize buffer to zero
+  for (int i = 0; i < NUM_SIGNAL_BITS; i++) {                                //initialize buffer to zero
     buffer[i] = 0;
   }
   
   bool startFlag = false;
   while(!startFlag) {
-    startFlag =  startTransmission(buffer);           //wait for the start bits to indicate a new stream of data
+    startFlag =  startTransmission(buffer);                                 //wait for the start bits to indicate a new stream of data
   }
   
   LEDcontrol(buffer);
 }
 
-void LEDoff() {                                      //turns all LEDs off
+void LEDoff() {                                                            //turns all LEDs off
   digitalWrite(LED1, LOW);
   digitalWrite(LED2, LOW);
   digitalWrite(LED3, LOW);
   digitalWrite(LED4, LOW);
   digitalWrite(LED5, LOW);
 }
-
-bool startTransmission(unsigned int buffer[NUM_SIGNAL_BITS]) {
+ 
+bool startTransmission(unsigned int buffer[NUM_SIGNAL_BITS]) {             //looks for the protocol pattern before attempting to read the data bitstream   
     if (digitalRead(digitalPin) == HIGH) {
       delayMicroseconds(1000);
       if(digitalRead(digitalPin) == LOW) {
@@ -56,16 +56,16 @@ bool startTransmission(unsigned int buffer[NUM_SIGNAL_BITS]) {
     return false;
 }
 
-void fillBuffers(unsigned int buffer[10]) {
+void fillBuffers(unsigned int buffer[10]) {                                 //fills the buffer with the data bitstream
   for (int i = 0; i < NUM_SIGNAL_BITS; i++) {
     buffer[i] = digitalRead(digitalPin);
     delayMicroseconds(1000);
   }
 }
 
-void LEDcontrol(unsigned int buffer[10]) {
+void LEDcontrol(unsigned int buffer[10]) {      
 
-  unsigned int ledCounts = 0x00;
+  unsigned int ledCounts = 0x00;                                            //converts bits in buffer into a decimal number
   for (int i = 0; i < NUM_SIGNAL_BITS; i++) {
     unsigned int ledBit = buffer[i] << i;
     ledCounts = ledCounts | ledBit;
@@ -73,7 +73,7 @@ void LEDcontrol(unsigned int buffer[10]) {
 
   LEDoff();
 
-  if (ledCounts > 50) {
+  if (ledCounts > 50) {                                                     //turns on each LED based on the decimal number
     digitalWrite(LED1, HIGH);
   }
 

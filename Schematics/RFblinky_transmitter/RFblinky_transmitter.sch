@@ -238,4 +238,6 @@ Text Notes 8150 7650 0    50   ~ 0
 2019-08-26\n
 Text Notes 10600 7650 0    50   ~ 0
 1.0\n
+Text Notes 4800 950  0    118  ~ 0
+TRANSMITTER MODULE
 $EndSCHEMATC
